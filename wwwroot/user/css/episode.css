@@ -1,0 +1,57 @@
+
+
+.container {
+    max-width: 1200px;
+    margin-bottom: 40px;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.video-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+.video {
+    width: 100%;
+    background-color: #000;
+    margin-bottom: 20px;
+}
+
+.info-container {
+    width: 300px;
+    padding: 0 20px;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.episode-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 10px;
+}
+
+.episode-box {
+    aspect-ratio: 1 / 1;
+    background-color: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.episode-box:hover {
+    background-color: #555555;
+}

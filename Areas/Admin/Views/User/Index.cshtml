@@ -1,0 +1,173 @@
+@model IEnumerable<eproject.ViewModel.UserViewModel>
+@Html.AntiForgeryToken()
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">User List</h1>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12 col-md-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search users...">
+        </div>
+        <div class="col-12 col-md-3">
+            <select id="roleFilter" class="form-select">
+                <option value="">All Roles</option>
+                <!-- Role options will be populated dynamically -->
+            </select>
+        </div>
+        <div class="col-12 col-md-3">
+            <select id="sortBy" class="form-select">
+                <option value="username">Sort by Username</option>
+                <option value="email">Sort by Email</option>
+                <option value="joinedDate">Sort by Joined Date</option>
+            </select>
+        </div>
+
+            <div class="col-12 col-md-2">
+                <a asp-area="Admin" asp-controller="User" asp-action="Create" class="btn btn-primary w-100">New User</a>
+            </div>
+        </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Avatar</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Joined Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                @foreach (var user in Model)
+                {
+                    <tr id="user-@user.Id" class="user-row" data-roles="@string.Join(",", user.Roles)">
+                        <td><img src="@user.AvatarPath" alt="@user.UserName" class="avatar-sm"></td>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                 
+
+                     <td>
+    @if (!string.IsNullOrEmpty(user.Role))
+    {
+        <span class="badge badge-role badge-@user.Role.ToLower()">@user.Role</span>
+    }
+    else
+    {
+        <span class="badge badge-role badge-default">No Role</span>
+    }
+</td>
+
+                        <td>@user.CreatedAt.ToString("yyyy-MM-dd")</td>
+                        <td>
+                            <a asp-action="UpdateUser" asp-route-id="@user.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <button onclick="deleteUser('@user.Id')" class="btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Populate role filter
+            var roles = [...new Set(@Html.Raw(Json.Serialize(Model.SelectMany(u => u.Roles))))];
+            roles.forEach(function(role) {
+                $('#roleFilter').append($('<option>', {
+                    value: role,
+                    text: role
+                }));
+            });
+
+            // Search, filter, and sort function
+            function updateUserList() {
+                var search = $('#searchInput').val().toLowerCase();
+                var role = $('#roleFilter').val();
+                var sortBy = $('#sortBy').val();
+
+                $('.user-row').each(function() {
+                    var $row = $(this);
+                    var username = $row.find('td:eq(1)').text().toLowerCase();
+                    var email = $row.find('td:eq(2)').text().toLowerCase();
+                    var roles = $row.data('roles').toLowerCase().split(',');
+                    var showRow = (username.includes(search) || email.includes(search)) && 
+                                  (role === '' || roles.includes(role.toLowerCase()));
+                    $row.toggle(showRow);
+                });
+
+                var rows = $('.user-row:visible').get();
+                rows.sort(function(a, b) {
+                    var A, B;
+                    if (sortBy === 'username') {
+                        A = $(a).find('td:eq(1)').text().toLowerCase();
+                        B = $(b).find('td:eq(1)').text().toLowerCase();
+                    } else if (sortBy === 'email') {
+                        A = $(a).find('td:eq(2)').text().toLowerCase();
+                        B = $(b).find('td:eq(2)').text().toLowerCase();
+                    } else if (sortBy === 'joinedDate') {
+                        A = new Date($(a).find('td:eq(4)').text());
+                        B = new Date($(b).find('td:eq(4)').text());
+                    }
+                    if (A < B) return -1;
+                    if (A > B) return 1;
+                    return 0;
+                });
+                $.each(rows, function(index, row) {
+                    $('#userTableBody').append(row);
+                });
+
+                updateUserCount();
+            }
+
+            // Event listeners
+            $('#searchInput').on('input', updateUserList);
+            $('#roleFilter').on('change', updateUserList);
+            $('#sortBy').on('change', updateUserList);
+
+            // Initial call to set up the list
+            updateUserList();
+        });
+
+        function deleteUser(id) {
+            if (confirm('Are you sure you want to delete this user?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete", "User")',
+                    type: 'POST',
+                    data: { 
+                        id: id,
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (result) {
+                        if (result.success) {
+                            $('#user-' + id).fadeOut(300, function() {
+                                $(this).remove();
+                                updateUserList();
+                            });
+                        } else {
+                            alert(result.message || 'An error occurred while deleting the user.');
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(xhr.responseText);
+                        alert('An error occurred while deleting the user.');
+                    }
+                });
+            }
+        }
+
+        function updateUserCount() {
+            var userCount = $('.user-row:visible').length;
+            $('#userCount').text(userCount);
+            
+            if (userCount === 0) {
+                $('#userTableBody').html('<tr><td colspan="6" class="text-center">No users found</td></tr>');
+            }
+        }
+    </script>
+}

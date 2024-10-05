@@ -1,0 +1,110 @@
+@model eproject.ViewModels.AnimeListViewModel
+
+@{
+    ViewData["Title"] = "Anime List";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Anime List</h1>
+
+    <!-- Genre Filter Buttons -->
+    <div class="genre-filter mb-4">
+        <button class="btn btn-outline-primary me-2 mb-2" data-genre="all">All</button>
+        @foreach (var genre in Model.Genres)
+        {
+            <button class="btn btn-outline-primary me-2 mb-2" data-genre="@genre.ToLower()">@genre</button>
+        }
+    </div>
+
+    <!-- Anime Grid -->
+    <!-- <div class="row" id="animeGrid">
+        @foreach (var anime in Model.Animes)
+        {
+            <div class="col-md-4 mb-4 anime-card" data-genres="@string.Join(" ", anime.Genres.Select(g => g.ToLower()))">
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@anime.Id" class="top-anime-link">
+    
+                <div class="card h-100">
+                    <img src="@anime.CoverImagePath" class="card-img-top" alt="@anime.Title" style="height: 200px; object-fit: cover;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title anime-title">@anime.Title</h5>
+                        <p class="card-text"><strong>Genres:</strong> @string.Join(", ", anime.Genres)</p>
+                        <p class="card-text"><strong>Episodes:</strong> @anime.TotalEpisodes</p>
+                        <p class="card-text"><strong>Rating:</strong> @anime.AverageRating / 10</p>
+                        <a href="@Url.Action("Details", "Home", new { id = anime.Id })" class="btn btn-primary mt-auto">View Details</a>
+                    </div>
+                </div>
+                            </a>
+
+            </div>
+        }
+    </div> -->
+
+    <div class="row h-100" id="animeGrid">
+    @foreach (var anime in Model.Animes)
+    {
+        <div class="col-md-4 col-lg-3 mb-4 anime-card" data-genres="@string.Join(" ", anime.Genres.Select(g => g.ToLower()))">
+            <a asp-controller="Home" asp-action="Details" asp-route-id="@anime.Id">
+                <div class="card anime-card">
+                    <img src="@anime.CoverImagePath" class="card-img" alt="@anime.Title">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">@anime.Title</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>
+
+</div>
+
+
+
+<style>
+
+.anime-card{
+    background-color:transparent;
+}
+    .genre-filter .btn {
+        border-radius: 20px;
+    }
+
+    .anime-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .anime-card {
+        transition: all 0.3s ease;
+    }
+
+    .anime-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+</style>
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.genre-filter .btn').click(function() {
+                var selectedGenre = $(this).data('genre');
+
+                if (selectedGenre === 'all') {
+                    $('.anime-card').show();
+                } else {
+                    $('.anime-card').each(function() {
+                        var genres = $(this).data('genres').split(' ');
+                        if (genres.includes(selectedGenre)) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                }
+
+                $('.genre-filter .btn').removeClass('btn-primary').addClass('btn-outline-primary');
+                $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            });
+        });
+    </script>
+}

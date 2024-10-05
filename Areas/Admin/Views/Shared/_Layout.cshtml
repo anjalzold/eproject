@@ -1,0 +1,132 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using eproject.Areas.Admin.Models
+@inject UserManager<User> UserManager
+@inject SignInManager<User> SignInManager
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - eproject</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/eproject.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/user.css">
+</head>
+
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+             
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-2"></i> Dashboard
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Create">
+                                <i class="fas fa-plus me-2"></i> Add Anime
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="ListAnime">
+                                <i class="fas fa-edit me-2"></i>  Anime
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Create">
+                                <i class="fas fa-user-plus me-2"></i> Add User
+                            </a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
+                                <i class="fas fa-users me-2"></i>  Users
+                            </a>
+                        </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="fas fa-user-edit me-2"></i> Update User
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+
+                @if(SignInManager.IsSignedIn(User)){
+                         <div class="logout-section mt-auto mb-3" >
+                    <form id="logoutForm" asp-area="Admin" asp-controller="User" asp-action="Logout" method="post">
+                        <button type="button" class="btn btn-danger w-100" onclick="document.getElementById('logoutForm').submit();">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </button>
+                    </form>
+                </div>
+                }
+
+              
+                <!-- Add sidebar content here (same as in the main dashboard) -->
+            </nav>
+
+              <button class="btn btn-primary d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+
+            <!-- Sidebar for mobile screens -->
+            <nav id="mobileSidebar" class="col-md-3 col-lg-2 collapse d-md-none">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-2"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="ListAnime">
+                                <i class="fas fa-edit me-2"></i> Anime
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Admin" asp-controller="User" asp-action="Index">
+                                <i class="fas fa-users me-2"></i> Users
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                  @if(SignInManager.IsSignedIn(User)){
+                         <div class="logout-section mt-auto mb-3" >
+                    <form id="logoutForm" asp-area="Admin" asp-controller="User" asp-action="Logout" method="post">
+                        <button type="button" class="btn btn-danger w-100" onclick="document.getElementById('logoutForm').submit();">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </button>
+                    </form>
+                </div>
+                }
+            </nav>
+
+
+            <!-- Main content -->
+             @RenderBody()
+        </div>
+    </div>
+
+
+
+
+  
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/user.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

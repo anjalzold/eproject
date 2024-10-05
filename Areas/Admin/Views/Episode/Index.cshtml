@@ -1,0 +1,55 @@
+@* @model eproject.Areas.Admin.Models.Episode *@
+@* *@
+@* @{ *@
+@* ViewData["Title"] = "Add New Episode"; *@
+@* Layout = "_Custom"; *@
+@* } *@
+@* *@
+@* <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4"> *@
+@*     <div *@
+@*         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"> *@
+@*         <h1 class="h2">Add New Episode</h1> *@
+@*     </div> *@
+@* *@
+@*     <div class="row"> *@
+@*         <div class="col-md-6"> *@
+@*             <form asp-action="Create" enctype="multipart/form-data"> *@
+@*                 <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+@*                 <div class="form-group mb-3"> *@
+@*                     <label asp-for="AnimeId" class="control-label">Anime</label> *@
+@*                     <select asp-for="AnimeId" class="form-select" asp-items="ViewBag.AnimeId"></select> *@
+@*                     <span asp-validation-for="AnimeId" class="text-danger"></span> *@
+@*                 </div> *@
+@*                 <div class="form-group mb-3"> *@
+@*                     <label asp-for="EpisodeNumber" class="control-label">Episode Number</label> *@
+@*                     <input asp-for="EpisodeNumber" class="form-control" /> *@
+@*                     <span asp-validation-for="EpisodeNumber" class="text-danger"></span> *@
+@*                 </div> *@
+@*                 <div class="form-group mb-3"> *@
+@*                     <label asp-for="Title" class="control-label">Title</label> *@
+@*                     <input asp-for="Title" class="form-control" /> *@
+@*                     <span asp-validation-for="Title" class="text-danger"></span> *@
+@*                 </div> *@
+@*                 <div class="form-group mb-3"> *@
+@*                     <label asp-for="Description" class="control-label">Description</label> *@
+@*                     <textarea asp-for="Description" class="form-control" rows="3"></textarea> *@
+@*                     <span asp-validation-for="Description" class="text-danger"></span> *@
+@*                 </div> *@
+@*                 <div class="form-group mb-3"> *@
+@*                     <label asp-for="VideoPath" class="control-label">Video File</label> *@
+@*                     <input type="file" name="videoFile" class="form-control" /> *@
+@*                     <span asp-validation-for="VideoPath" class="text-danger"></span> *@
+@*                 </div> *@
+@*                 <div class="form-group mb-3"> *@
+@*                     <input type="submit" value="Create" class="btn btn-primary" /> *@
+@*                     <a asp-area="Admin" asp-controller="Anime" asp-action="Index" class="btn btn-secondary">Back to *@
+@*                         List</a> *@
+@*                 </div> *@
+@*             </form> *@
+@*         </div> *@
+@*     </div> *@
+@* </main> *@
+@* *@
+@* @section Scripts { *@
+@* @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} *@
+@* } *@

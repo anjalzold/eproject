@@ -1,0 +1,46 @@
+@model eproject.ViewModels.LoginViewModel
+
+@{
+ViewData["Title"] = "Login";
+}
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <h2 class="text-center mb-4">Login</h2>
+                    <form asp-controller="User" asp-action="Login" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label"></label>
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label asp-for="RememberMe" class="form-check-label"></label>
+                        </div>
+                     <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                            <a asp-controller="User" asp-action="ExternalLogin" asp-route-provider="Google" class="btn btn-danger btn-lg">
+                                <i class="fab fa-google"></i> Sign in with Google
+                            </a>
+                        </div>
+
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

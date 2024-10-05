@@ -1,0 +1,92 @@
+﻿@model List<eproject.Areas.Admin.Models.Anime>
+
+<style>
+    .truncate-multiline {
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* Number of lines to show */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+      
+<div id="animeCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @for (int i = 0; i < Math.Min(Model.Count, 3); i++)
+        {
+            
+            <div class="carousel-item @(i == 0 ? "active" : "")">
+                <div class="row h-100">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="carousel-caption text-start">
+                            <h5>@Model[i].Title</h5>
+                            <p class="truncate-multiline">@Model[i].Synopsis</p>
+                            <a asp-controller="Home" asp-action="Details" asp-route-id="@Model[i].Id" class="btn btn-watch">Watch Now</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="height:500px;">
+                        <img src="@Model[i].CoverImagePath" class="d-block w-100 carousel-image" alt="@Model[i].Title">
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#animeCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#animeCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+        <div class="row">
+            <div class="col-md-9">
+                <h2 class="section-title">Popular Anime</h2>
+                <div class="row h-100" id="animeGrid">
+                    @foreach (var anime in Model)
+                    {
+                    <div class="col-md-4 col-lg-3 mb-4">
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@anime.Id" class="col-md-4 col-lg-3 mb-4">
+
+                        <div class="card anime-card">
+                            <img src="@anime.CoverImagePath" class="card-img" alt="@anime.Title">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">@anime.Title</h5>
+                            </div>
+                        </div>
+                                            </a>
+
+                    </div>
+                    }
+                </div>
+            </div>
+         <div class="col-md-3">
+    <div class="top-anime">
+        <h3>Top Anime</h3>
+        <div id="topAnimeList">
+            @{
+                var topAnime = Model.OrderByDescending(a => a.TotalEpisodes).Take(5).ToList();
+                for (int i = 0; i < topAnime.Count; i++)
+                { 
+                    var anime = topAnime[i]; 
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@anime.Id" class="top-anime-link">
+                        <div class="top-anime-item">
+                            <div class="number">@(i + 1)</div>
+                            <img src="@anime.CoverImagePath" alt="@anime.Title">
+                            <div class="info">
+                                <span class="title">@anime.Title</span>
+                                <span class="episodes">@anime.TotalEpisodes episodes</span>
+                            </div>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+    </div>
+</div>
+        </div>
+
+  

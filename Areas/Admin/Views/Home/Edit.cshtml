@@ -1,0 +1,106 @@
+@model eproject.Areas.Admin.Models.Anime
+@{
+    Layout = "_Custom";
+}
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Update Anime</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-area="Admin" asp-controller="Home" asp-action="Edit" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">Anime Title</label>
+                            <input asp-for="Title" class="form-control" required>
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="Genres" class="form-label">Genres</label>
+                            @foreach (var animeGenre in Model.AnimeGenres)
+{
+    <input type="hidden" name="CurrentGenreIds" value="@animeGenre.GenreId" />
+}
+                            <select id="Genres" name="GenreIds" class="form-select" multiple >
+                                @foreach (var genre in ViewBag.Genres)
+                                {
+                                    <option value="@genre.Id" selected="@Model.AnimeGenres.Any(ag => ag.GenreId == genre.Id)">@genre.Name</option>
+                                }
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="ReleaseDate" class="form-label">Release Date</label>
+                            <input asp-for="ReleaseDate" class="form-control" type="date" required>
+                            <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="TotalEpisodes" class="form-label">Total Episodes</label>
+                            <input asp-for="TotalEpisodes" class="form-control" type="number" min="1" required>
+                            <span asp-validation-for="TotalEpisodes" class="text-danger"></span>
+                        </div>
+
+                              <div class="mb-3">
+                            <label asp-for="AnimeStatus" class="form-label">Status</label>
+                            <input asp-for="AnimeStatus" class="form-control"  />
+                            <span asp-validation-for="AnimeStatus" class="text-danger"></span>
+                        </div>
+                              <div class="mb-3">
+                            <label asp-for="Studio" class="form-label">Studio</label>
+                            <input asp-for="Studio" class="form-control"  />
+                            <span asp-validation-for="Studio" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label asp-for="Synopsis" class="form-label">Synopsis</label>
+                            <textarea asp-for="Synopsis" class="form-control" rows="3" required></textarea>
+                            <span asp-validation-for="Synopsis" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="coverImage" class="form-label">Cover Image</label>
+                            <input type="hidden" asp-for="CoverImagePath" />
+                            <input type="file" class="form-control" id="coverImage" name="coverImage">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Update Anime</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Current Cover</h5>
+                    <img id="coverPreview" src="@Model.CoverImagePath" alt="Cover Preview" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        // Preview the selected image
+        document.getElementById('coverImage').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('coverPreview').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+}

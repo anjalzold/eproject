@@ -1,0 +1,141 @@
+@using eproject.Areas.Admin.Models
+@model eproject.ViewModel.AnimeDetailsViewModel
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="@Model.Anime.CoverImagePath" alt="@Model.Anime.Title" class="img-fluid anime-cover">
+        </div>
+        <div class="col-md-8">
+            <div class="col-md-8">
+                <h1>@Model.Anime.Title</h1>
+                <a asp-controller="Home" asp-action="EpisodeList" asp-route-id="@Model.Anime.Id" class="btn btn-primary mb-3">Watch Now</a>
+                <p>@Model.Anime.Synopsis</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Type:</strong> TV Series</p>
+                    <p><strong>Studios:</strong> @Model.Anime.Studio</p>
+                    <p><strong>Date aired:</strong> @Model.Anime.ReleaseDate.ToString("MMM dd, yyyy") to ?</p>
+                    <p><strong>Status:</strong> @Model.Anime.AnimeStatus</p>
+                    <p><strong>Genre:</strong> @string.Join(", ", Model.Anime.AnimeGenres.Select(ag => ag.Genre.Name))</p>
+                </div>
+                <div class="col-md-6">
+                                    <p><strong>Episode:</strong> @Model.Anime.TotalEpisodes</p>
+
+                    <!-- <p><strong>Scores:</strong> @Model.AverageRating / @Model.NumberOfRatings ratings</p> -->
+                    <p><strong>Rating:</strong> @Model.AverageRating / @Model.NumberOfRatings times</p>
+                    <p><strong>Duration:</strong> 24 min/ep</p>
+                    <p><strong>Quality:</strong> HD</p>
+                    <p><strong>Views:</strong> @Model.Anime.Views</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="mt-5">
+        <h2>User Tracking</h2>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <form asp-controller="Home" asp-action="UpdateTracking" method="post">
+                <input type="hidden" name="animeId" value="@Model.Anime.Id" />
+                <div class="mb-3">
+                    <label for="episodesWatched" class="form-label">Episodes Watched</label>
+                    <input type="number" class="form-control" id="episodesWatched" name="episodesWatched" min="0" max="@Model.Anime.TotalEpisodes" value="@(Model.UserTracking?.EpisodesWatched ?? 0)">
+                </div>
+                <div class="mb-3">
+                    <label for="userRating" class="form-label">Your Rating</label>
+                    <input type="number" class="form-control" id="userRating" name="userRating" min="1" max="10" step="0.1" value="@(Model.UserTracking?.UserRating ?? 0)">
+                </div>
+                <div class="mb-3">
+                    <label for="watchStatus" class="form-label">Watch Status</label>
+                    <select class="form-select" id="watchStatus" name="watchStatus">
+                        @foreach (var status in Enum.GetValues(typeof(AnimeWatchStatus)))
+                        {
+                            var isSelected = Model.UserTracking?.Status == (AnimeWatchStatus)status;
+                            if (Model.UserTracking?.EpisodesWatched >= Model.Anime.TotalEpisodes)
+                            {
+                                isSelected = (AnimeWatchStatus)status == AnimeWatchStatus.Completed;
+                            }
+                            <option value="@status" selected="@isSelected">@status</option>
+                        }
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        }
+        else
+        {
+            <p>You need to <a asp-controller="User" asp-action="Login">login </a> update your tracking information.</p>
+        }
+    </div>
+
+    <div class="mt-5">
+        <h2>Comments</h2>
+        @foreach (var comment in Model.Comments)
+        {
+            <div class="comment-box mb-3">
+                <div class="d-flex align-items-center mb-2">
+                    @if (!string.IsNullOrEmpty(comment.User.AvatarPath))
+                    {
+                        <img src="@comment.User.AvatarPath" alt="@GetUsernameWithoutDomain(comment.User.UserName) Avatar" class="user-avatar rounded-circle me-2" style="width: 40px; height: 40px; object-fit: cover;">
+                    }
+                    else
+                    {
+                        var initials = GetInitials(comment.User.UserName);
+                        <div class="rounded-circle me-2" style="width: 40px; height: 40px; background-color: #007bff; display: flex; align-items: center; justify-content: center; color: white; font-size: 1rem; line-height: 40px; text-align: center;">
+                            @initials
+                        </div>
+                    }
+                    <div>
+                        <strong>@GetUsernameWithoutDomain(comment.User.UserName)</strong>
+                        <small class="text-muted ms-2">@(Math.Round((DateTime.Now - comment.CreatedAt).TotalHours, MidpointRounding.AwayFromZero)) hours ago</small>
+                    </div>
+                </div>
+                <p class="text-dark" >@comment.CommentText</p>
+            </div>
+        }
+    </div>
+
+    <!-- Add comment form -->
+     @if (User.Identity.IsAuthenticated)
+    {
+        <!-- Add comment form -->
+        <form asp-controller="Home" asp-action="AddComment" method="post">
+            <input type="hidden" name="animeId" value="@Model.Anime.Id" />
+            <div class="mb-3">
+                <label for="commentText" class="form-label">Add a comment</label>
+                <textarea class="form-control" id="commentText" name="commentText" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+    }
+    else
+    {
+        <p>You need to <a asp-controller="User" asp-action="Login">log in</a> to add a comment.</p>
+    }
+</div>
+
+@functions {
+    private string GetUsernameWithoutDomain(string userName)
+    {
+        if (string.IsNullOrEmpty(userName))
+            return "Unknown";
+
+        var atIndex = userName.IndexOf('@');
+        if (atIndex > 0)
+        {
+            return userName.Substring(0, atIndex);
+        }
+
+        return userName; // Return the full userName if '@' is not found
+    }
+
+    private string GetInitials(string userName)
+    {
+        if (string.IsNullOrEmpty(userName) || userName.Length < 2)
+            return "NA";
+
+        return userName.Substring(0, 2).ToUpper();
+    }
+}

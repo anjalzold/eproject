@@ -1,0 +1,365 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/obj/Debug/net7.0/scopedcss/projectbundle/eproject.bundle.scp.css",
+      "PackagePath": "staticwebassets/eproject.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/css/admin.css",
+      "PackagePath": "staticwebassets/css/admin.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/css/user.css",
+      "PackagePath": "staticwebassets/css/user.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/animes/2ad21683-d99e-4c5d-8e18-5b81cbe820f2_MV5BOTI1MmI4NzItYTg2Yy00NmVkLWIwY2EtZTdhZTNkOTQ5OTZjXkEyXkFqcGdeQXVyNzI3NjY3NjQ@._V1_.jpg",
+      "PackagePath": "staticwebassets/images/animes/2ad21683-d99e-4c5d-8e18-5b81cbe820f2_MV5BOTI1MmI4NzItYTg2Yy00NmVkLWIwY2EtZTdhZTNkOTQ5OTZjXkEyXkFqcGdeQXVyNzI3NjY3NjQ@._V1_.jpg"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/animes/8373eff0-aac7-44b3-83b0-a2b4069c932e_goku.jpg",
+      "PackagePath": "staticwebassets/images/animes/8373eff0-aac7-44b3-83b0-a2b4069c932e_goku.jpg"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/animes/ae109c3f-d113-4238-99c3-a7fc54740f39_Cyberpunk-T-Shirt-Design-min.webp",
+      "PackagePath": "staticwebassets/images/animes/ae109c3f-d113-4238-99c3-a7fc54740f39_Cyberpunk-T-Shirt-Design-min.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/animes/cd711ef0-07b4-4a2a-a092-2e33a8080b96_Hunter_×_Hunter_vol._1.png",
+      "PackagePath": "staticwebassets/images/animes/cd711ef0-07b4-4a2a-a092-2e33a8080b96_Hunter_×_Hunter_vol._1.png"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_1b98.webp",
+      "PackagePath": "staticwebassets/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_1b98.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_25e2.webp",
+      "PackagePath": "staticwebassets/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_25e2.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_a02e.webp",
+      "PackagePath": "staticwebassets/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_a02e.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_e56e.webp",
+      "PackagePath": "staticwebassets/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_e56e.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_f714.webp",
+      "PackagePath": "staticwebassets/images/avatars/Blooming-Brilliance-A-Showcase-of-Floral-Designs-1128x1504_f714.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Cyberpunk-T-Shirt-Design-min_98e4.webp",
+      "PackagePath": "staticwebassets/images/avatars/Cyberpunk-T-Shirt-Design-min_98e4.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Cyberpunk-T-Shirt-Design-min_9a30.webp",
+      "PackagePath": "staticwebassets/images/avatars/Cyberpunk-T-Shirt-Design-min_9a30.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Cyberpunk-T-Shirt-Design-min_b929.webp",
+      "PackagePath": "staticwebassets/images/avatars/Cyberpunk-T-Shirt-Design-min_b929.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Cyberpunk-T-Shirt-Design-min_dd40.webp",
+      "PackagePath": "staticwebassets/images/avatars/Cyberpunk-T-Shirt-Design-min_dd40.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/Cyberpunk-T-Shirt-Design-min_fc22.webp",
+      "PackagePath": "staticwebassets/images/avatars/Cyberpunk-T-Shirt-Design-min_fc22.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/images/avatars/O81001LadiesFitT-shirt_DustyPurple_1200x1200_241f.webp",
+      "PackagePath": "staticwebassets/images/avatars/O81001LadiesFitT-shirt_DustyPurple_1200x1200_241f.webp"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/js/dashboard.js",
+      "PackagePath": "staticwebassets/js/dashboard.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/js/user.js",
+      "PackagePath": "staticwebassets/js/user.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/user/css/episode.css",
+      "PackagePath": "staticwebassets/user/css/episode.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/user/css/home.css",
+      "PackagePath": "staticwebassets/user/css/home.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/user/css/user.css",
+      "PackagePath": "staticwebassets/user/css/user.css"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/videos/2sm4q44y.fsv.mp4",
+      "PackagePath": "staticwebassets/videos/2sm4q44y.fsv.mp4"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/videos/okashazt.t00.mp4",
+      "PackagePath": "staticwebassets/videos/okashazt.t00.mp4"
+    },
+    {
+      "Id": "/Users/anjal/Downloads/Merry Christmas/eproject/wwwroot/videos/olcn2aep.yim.mp4",
+      "PackagePath": "staticwebassets/videos/olcn2aep.yim.mp4"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.eproject.props",
+      "PackagePath": "build\\eproject.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.eproject.props",
+      "PackagePath": "buildMultiTargeting\\eproject.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.eproject.props",
+      "PackagePath": "buildTransitive\\eproject.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.eproject.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

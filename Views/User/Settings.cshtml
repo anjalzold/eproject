@@ -1,0 +1,118 @@
+@model eproject.ViewModels.UserSettingsViewModel;
+
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<main class="container mt-5">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h2 class="h2 text-center">@ViewData["Title"]</h2>
+    </div>
+
+    @if (TempData["StatusMessage"] != null)
+    {
+        <div class="alert alert-success text-center">
+            @TempData["StatusMessage"]
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-area="" asp-controller="User" asp-action="Settings" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="UserName" class="form-label"></label>
+                            <input asp-for="UserName" class="form-control" required />
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Avatar">Change Avatar</label>
+                            <input asp-for="Avatar" type="file" class="form-control-file" />
+                            <!-- @if (!string.IsNullOrEmpty(Model.CurrentAvatarPath))
+                            {
+                                <img src="@Model.CurrentAvatarPath" alt="Current Avatar" class="mt-3" style="max-width: 150px; max-height: 150px;" />
+                            }
+                            <span asp-validation-for="Avatar" class="text-danger"></span> -->
+                        </div>
+
+                        <div class="mb-3">
+                            <button id="changePasswordLink" class="btn btn-link p-0" type="button">Change Password</button>
+                        </div>
+
+                        <div id="changePasswordSection" style="display: none;">
+                            <div class="mb-3">
+                                <label asp-for="CurrentPassword" class="form-label">Current Password</label>
+                                <input asp-for="CurrentPassword" class="form-control" type="password" required />
+                                <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="NewPassword" class="form-label"></label>
+                                <input asp-for="NewPassword" class="form-control" type="password" required />
+                                <span asp-validation-for="NewPassword" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="ConfirmPassword" class="form-label"></label>
+                                <input asp-for="ConfirmPassword" class="form-control" type="password" required />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-12 col-lg-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Avatar Preview</h5>
+                    <img id="avatarPreview" src="@(string.IsNullOrEmpty(Model.CurrentAvatarPath) ? "/images/avatars/default-avatar.jpg" : Model.CurrentAvatarPath)" alt="Avatar Preview" class="mb-3" style="max-width: 150px; max-height: 150px;">
+                    <p class="card-text">Current avatar shown. Upload a new image to change.</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</main>
+
+<script>
+    // Toggle password section visibility
+    document.getElementById('changePasswordLink').addEventListener('click', function () {
+        var section = document.getElementById('changePasswordSection');
+        section.style.display = section.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Avatar preview functionality
+    document.getElementById('Avatar').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById('avatarPreview').src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // Ensure preview is set to current avatar path on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        var currentAvatarPath = '@Model.CurrentAvatarPath';
+        if (currentAvatarPath) {
+            document.getElementById('avatarPreview').src = currentAvatarPath;
+        }
+    });
+
+    // Password confirmation
+    document.querySelector('form').addEventListener('submit', function (e) {
+        const newPassword = document.getElementById('NewPassword').value;
+        const confirmPassword = document.getElementById('ConfirmPassword').value;
+        if (newPassword !== confirmPassword) {
+            e.preventDefault();
+            alert("Passwords do not match!");
+        }
+    });
+</script>
+

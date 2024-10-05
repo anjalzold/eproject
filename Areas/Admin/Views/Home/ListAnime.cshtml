@@ -1,0 +1,158 @@
+@model IEnumerable<eproject.Areas.Admin.Models.Anime>
+@Html.AntiForgeryToken()
+
+    @{
+    Layout = "_Custom";
+    }
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Anime List</h1>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-12 col-md-4">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search anime...">
+            </div>
+            <div class="col-12 col-md-3">
+                <select id="genreFilter" class="form-select">
+                    <option value="">All Genres</option>
+                    <!-- Add genre options dynamically if needed -->
+                </select>
+            </div>
+            <div class="col-12 col-md-3">
+                <select id="sortBy" class="form-select">
+                    <option value="title">Sort by Title</option>
+                    <option value="releaseDate">Sort by Release Date</option>
+                    <option value="episodes">Sort by Episodes</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-2">
+                <a asp-action="Create" class="btn btn-primary w-100">Add New Anime</a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Cover</th>
+                    <th>Title</th>
+                    <!-- <th>Genres</th> -->
+                    <th>Release Date</th>
+                    <th>Episodes</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody id="animeTableBody">
+                @foreach (var anime in Model)
+                {
+<tr data-id="@anime.Id" data-genres="@string.Join(',', anime.AnimeGenres.Select(ag => ag.Genre.Name))">
+                        <td><img src="@anime.CoverImagePath"  alt="@anime.Title" class="anime-poster"></td>
+                        <td>@anime.Title</td>
+        <!-- <td>@string.Join(", ", anime.AnimeGenres.Select(ag => ag.Genre.Name))</td>        -->
+                         <td>@anime.ReleaseDate.ToString("yyyy-MM-dd")</td>
+                        <td>@anime.TotalEpisodes</td>
+                        <td>
+                            <a asp-area="Admin" asp-controller="Home" asp-action="Edit" asp-route-id="@anime.Id"
+                               class="btn btn-sm btn-outline-primary">Edit</a>
+                           <a href="javascript:void(0);" onclick="deleteAnime(@anime.Id)" class="btn btn-sm btn-outline-danger">Delete</a>
+
+<a asp-area="Admin" asp-controller="Home" asp-action="EpisodeList" asp-route-id="@anime.Id" class="btn btn-sm btn-outline-primary">Episodes</a>                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+
+        <nav aria-label="Anime list pagination">
+            <ul class="pagination justify-content-center" id="pagination">
+                <!-- Pagination will be dynamically added here -->
+            </ul>
+        </nav>
+    </main>
+    
+   @section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Populate genre filter
+            var genres = [...new Set(@Html.Raw(Json.Serialize(Model.SelectMany(a => a.AnimeGenres.Select(ag => ag.Genre.Name)))))];
+            genres.forEach(function(genre) {
+                $('#genreFilter').append($('<option>', {
+                    value: genre,
+                    text: genre
+                }));
+            });
+
+            // Search, filter, and sort function
+            function updateAnimeList() {
+                var search = $('#searchInput').val().toLowerCase();
+                var genre = $('#genreFilter').val();
+                var sortBy = $('#sortBy').val();
+
+                $('#animeTableBody tr').each(function() {
+                    var $row = $(this);
+                    var title = $row.find('td:eq(1)').text().toLowerCase();
+                    var genres = $row.data('genres').toLowerCase().split(',');
+                    var showRow = title.includes(search) && (genre === '' || genres.includes(genre.toLowerCase()));
+                    $row.toggle(showRow);
+                });
+
+                var rows = $('#animeTableBody tr:visible').get();
+                rows.sort(function(a, b) {
+                    var A, B;
+                    if (sortBy === 'title') {
+                        A = $(a).find('td:eq(1)').text().toLowerCase();
+                        B = $(b).find('td:eq(1)').text().toLowerCase();
+                    } else if (sortBy === 'releaseDate') {
+                        A = new Date($(a).find('td:eq(2)').text());
+                        B = new Date($(b).find('td:eq(2)').text());
+                    } else if (sortBy === 'episodes') {
+                        A = parseInt($(a).find('td:eq(3)').text());
+                        B = parseInt($(b).find('td:eq(3)').text());
+                    }
+                    if (A < B) return -1;
+                    if (A > B) return 1;
+                    return 0;
+                });
+                $.each(rows, function(index, row) {
+                    $('#animeTableBody').append(row);
+                });
+            }
+
+            // Event listeners
+            $('#searchInput').on('input', updateAnimeList);
+            $('#genreFilter').on('change', updateAnimeList);
+            $('#sortBy').on('change', updateAnimeList);
+
+            // Initial call to set up the list
+            updateAnimeList();
+        });
+
+        function deleteAnime(id) {
+            if (confirm('Are you sure you want to delete this anime?')) {
+                $.ajax({
+                    url: '@Url.Action("Delete", "Home", new { area = "Admin" })',
+                    type: 'POST',
+                    data: { id: id },
+                    headers: {
+                        "RequestVerificationToken": $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (result) {
+                        if (result.success) {
+                            // Remove the row from the table
+                            $('tr[data-id="' + id + '"]').remove();
+                            updateAnimeList(); // Refresh the list after deletion
+                        } else {
+                            alert(result.message);
+                        }
+                    },
+                    error: function () {
+                        alert('An error occurred while deleting the anime.');
+                    }
+                });
+            }
+        }
+    </script>
+}

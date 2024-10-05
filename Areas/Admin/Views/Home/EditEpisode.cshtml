@@ -1,0 +1,56 @@
+@model eproject.Areas.Admin.Models.Episode
+@{
+    ViewData["Title"] = "Edit Episode";
+    Layout = "_Custom";
+}
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Edit Episode</h1>
+    </div>
+
+    <form asp-action="EditEpisode" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="AnimeId" />
+
+        <div class="mb-3">
+            <label asp-for="EpisodeNumber" class="form-label">Episode Number</label>
+            <input asp-for="EpisodeNumber" class="form-control" />
+            <span asp-validation-for="EpisodeNumber" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Title" class="form-label">Title</label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description</label>
+            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="VideoPath" class="form-label">Current Video Path</label>
+            <input asp-for="VideoPath" class="form-control" readonly />
+        </div>
+
+        <div class="mb-3">
+            <label for="videoFile" class="form-label">Upload New Video (Optional)</label>
+            <input type="file" id="videoFile" name="videoFile" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="UploadDate" class="form-label">Upload Date</label>
+            <input asp-for="UploadDate" class="form-control" type="date" />
+            <span asp-validation-for="UploadDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <a asp-action="EpisodeList" asp-route-id="@Model.AnimeId" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</main>

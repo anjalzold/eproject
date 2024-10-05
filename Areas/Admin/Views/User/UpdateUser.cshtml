@@ -1,0 +1,94 @@
+@model eproject.Areas.Admin.Models.User
+
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Update User</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <form asp-area="Admin" asp-controller="User" asp-action="UpdateUser" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="mb-3">
+                            <label asp-for="UserName" class="form-label"></label>
+                            <input asp-for="UserName" class="form-control" required>
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" class="form-control" required>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Role" class="form-label"></label>
+                            <select asp-for="Role" class="form-select" required>
+                                <option value="user">User</option>
+                                <option value="moderator">Moderator</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                            <span asp-validation-for="Role" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="avatar" class="form-label">Avatar</label>
+                            <input type="file" class="form-control" id="avatar" name="avatar" accept="image/*">
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Bio" class="form-label"></label>
+                            <textarea asp-for="Bio" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Bio" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">New Password (leave blank to keep current)</label>
+                            <input type="password" class="form-control" id="newPassword" name="newPassword">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm New Password</label>
+                            <input type="password" class="form-control" id="confirmPassword">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update User</button>
+                        <a asp-area="Admin" asp-controller="User" asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Avatar Preview</h5>
+                    <img id="avatarPreview" src="@(string.IsNullOrEmpty(Model.AvatarPath) ? "/images/avatars/default-avatar.jpg" : Model.AvatarPath)" alt="Avatar Preview" class="mb-3" style="max-width: 150px; max-height: 150px;">
+                    <p class="card-text">Current avatar shown. Upload a new image to change.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        // Avatar preview functionality
+        document.getElementById('avatar').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('avatarPreview').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Password confirmation
+        document.querySelector('form').addEventListener('submit', function (e) {
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (newPassword !== confirmPassword) {
+                e.preventDefault();
+                alert("Passwords do not match!");
+            }
+        });
+    </script>
+}

@@ -1,0 +1,218 @@
+            /* Your CSS styles here */
+        
+
+
+            html, body {
+    height: 100%;
+}
+
+body {
+      background-color: #1a1a1a;
+                color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.content-wrapper {
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex-shrink: 0;
+                background-color: #141414;
+                color: #ffffff;
+}
+
+.footer a{
+    text-decoration: none;
+}
+
+            .navbar {
+                background-color: #141414;
+            }
+
+            .navbar-brand {
+                font-weight: bold;
+                color: #00b3ff !important;
+            }
+
+            .nav-link {
+                color: #ffffff !important;
+            }
+
+            .nav-link:hover {
+                color: #00b3ff !important;
+            }
+
+            .anime-card {
+                background-color: #2a2a2a;
+                border: none;
+                transition: transform 0.3s;
+            }
+
+            .anime-card:hover {
+                transform: scale(1.05);
+            }
+
+            .anime-card .card-title {
+                font-size: 0.9rem;
+                margin-bottom: 0;
+            }
+
+            .anime-card .card-img-overlay {
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 0.5rem;
+            }
+
+           .top-anime-link {
+    text-decoration: none;
+    color: #ffffff;
+    display: block;
+}
+
+.top-anime-link:hover {
+    text-decoration: none;
+    color: #00b3ff;
+}
+
+.top-anime-item {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 1rem;
+    height: 80px;
+    position: relative;
+    padding-left: 40px;
+    background-color: #3a3a3a;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.top-anime-item:hover {
+    background-color: #4a4a4a;
+}
+
+.top-anime-item .number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00b3ff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 179, 255, 0.1);
+}
+
+.top-anime-item img {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.top-anime-item .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.top-anime-item .title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ffffff;
+}
+
+.top-anime-item .episodes {
+    font-size: 0.8rem;
+    background-color: #2a2a2a;
+    padding: 2px 5px;
+    border-radius: 3px;
+    align-self: flex-start;
+    color: #00b3ff;
+}
+
+            .section-title {
+                color: #00b3ff;
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .carousel-item {
+                height: 400px;
+                background-color: #2a2a2a;
+            }
+
+            .carousel-image {
+                object-fit: cover;
+                height: 100%;
+            }
+
+            .carousel-caption {
+                text-align: left;
+                left: 5%;
+                right: 50%;
+                top: 10%;
+                max-width: 500px;
+            }
+
+            .carousel-caption h5 {
+                font-size: 3.5rem;
+                font-weight: bold;
+            }
+
+            .carousel-caption p {
+                font-size: 1rem;
+            }
+            .carousel-control-prev,
+            carousel-control-next {
+                width: 5%;
+            }
+
+            .btn-watch {
+                background-color: #00b3ff;
+                color: #ffffff;
+            }
+
+            .btn-watch:hover {
+                background-color: #0099cc;
+                color: #ffffff;
+            }
+
+
+            
+
+                .anime-cover {
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+
+        .comment-box {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        nav .container{
+            margin-bottom: 0px;
+        }
